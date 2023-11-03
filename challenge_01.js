@@ -1,12 +1,19 @@
-import { mensaje } from './assets/mensaje_01.js';
+import fs from 'fs';
 
+const mensaje = fs.readFileSync('./assets/mensaje_01.txt', 'utf8');
 const arreglo = mensaje.split(' ').map((i) => i.toLowerCase());
-const palabras = new Set(arreglo);
 
-let response = [];
-for (let item of palabras) {
-  const veces = arreglo.filter((p) => p === item).length;
-  response = [...response, item, veces];
+let frecuencias = {};
+for (let palabra of arreglo) {
+  if (frecuencias[palabra]) {
+    frecuencias[palabra]++;
+  } else {
+    frecuencias[palabra] = 1;
+  }
 }
 
-console.log(response.join(''));
+const frecuenciasStr = Object.entries(frecuencias)
+  .map(([palabra, veces]) => `${palabra}${veces}`)
+  .join('');
+
+console.log(frecuenciasStr);
