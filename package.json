@@ -1,0 +1,12 @@
+{
+  "name": "codember",
+  "version": "1.0.0",
+  "description": "Resolucion de retos de Codember",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Josevasqueez",
+  "license": "ISC"
+}
